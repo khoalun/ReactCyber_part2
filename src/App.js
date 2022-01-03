@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import ExerciseCarStore from "./ExerciseCarStore/ExerciseCarStore";
 // import ProductList from "./Props/ProductList/ProductList";
 // import dataJson from "./Data/data.json";
-import PhoneList from "./Props/PhoneList/PhoneList";
+// import PhoneList from "./Props/PhoneList/PhoneList";
 
 export default class App extends Component {
   render() {
@@ -62,7 +63,8 @@ export default class App extends Component {
           </div>
         </div> */}
 
-          <PhoneList/>
+        {/* <PhoneList/> */}
+        <ExerciseCarStore/>
 
       </div>
     );
