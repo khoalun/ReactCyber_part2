@@ -32,19 +32,19 @@ export default class ExerciseCarStore extends Component {
       img: "./img/black-car.jpg",
       price: 1000,
     },
-    };
-    changeState = (newModal) => {
-        this.setState({
-           modalDefault :newModal
-       })
-   }
+  };
 
+  changeState = (newState) => {
+    this.setState({
+      modalDefault: newState,
+    });
+  };
   render() {
     return (
-      <div>
-        <h3 className="display-4 text-center"> Car List</h3>
-        <ProductList productsData={this.products} changeData={this.changeState} />
-        <Modal content={this.state.modalDefault}/>
+      <div className="container-fluid">
+        <h3 className="text-center display-4"> Car List</h3>
+        <ProductList productData={this.products} changeButton={this.changeState}/>
+        <Modal content={this.state.modalDefault} />
       </div>
     );
   }

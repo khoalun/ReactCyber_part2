@@ -4,6 +4,7 @@ export default class Modal extends Component {
   render() {
     return (
       <div>
+        {/* Modal */}
         <div
           className="modal fade"
           id="modelId"
@@ -25,7 +26,13 @@ export default class Modal extends Component {
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <div className="modal-body"><img style={{width:"100%"}} src={this.props.content.img} alt={this.props.content.img}/></div>
+              <div className="modal-body">
+                <img
+                  src={this.props.content.img}
+                  alt={this.props.content.img}
+                  style={{ width: "100%" }}
+                />
+              </div>
               <div className="modal-footer">
                 <button
                   type="button"
