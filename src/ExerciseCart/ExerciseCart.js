@@ -83,12 +83,15 @@ export default class ExerciseCart extends Component {
         <h3 className="text-center display-4">Phone Market</h3>
         <div className="w3-padding w3-display-topright w3-button w3-border w3-hover-black">
           <span
-            style={{ width: 17, cursor: "pointer" }}
+            style={{ width: 45, cursor: "pointer" }}
             data-toggle="modal"
             data-target="#modelId"
           >
-            <i className="fa fa-shopping-cart mr-5 ">
-              ({this.totalSignCart()}) Adding Cart
+            <i
+              className="fa fa-shopping-cart btn btn-dark"
+              style={{ width: "500", height: "500" }}
+            >
+              <span> </span> ( {this.totalSignCart()} ) Adding Cart
             </i>
           </span>
         </div>

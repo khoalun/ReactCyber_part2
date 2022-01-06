@@ -16,7 +16,7 @@ export default class CartpropsItem extends Component {
         />
         <div className="card-body">
           <h4 className="card-title">{propsItem.tenSP}</h4>
-          <p className="card-text">{propsItem.giaBan}</p>
+          <p className="card-text font-weight-bold">Price: {propsItem.giaBan.toLocaleString()}</p>
         </div>
         <button
           className="btn btn-success"

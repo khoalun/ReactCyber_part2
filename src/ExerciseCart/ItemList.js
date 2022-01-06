@@ -101,7 +101,7 @@ export default class ItemList extends Component {
     },
     {
       maSP: 9,
-      tenSP: "Iphone XS Max",
+      tenSP: "Asus Rox 5s",
       manHinh: "OLED, 6.5, 1242 x 2688 Pixels",
       heDieuHanh: "iOS 12",
       cameraSau: "Chính 12 MP & Phụ 12 MP",
@@ -109,7 +109,7 @@ export default class ItemList extends Component {
       ram: "4 GB",
       rom: "64 GB",
       giaBan: 25000000,
-      hinhAnh: "./img/applephone.jpg",
+      hinhAnh: "./img/rog.jpg",
     },
   ];
 
