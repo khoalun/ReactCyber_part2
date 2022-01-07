@@ -105,3 +105,4 @@ export default class ExerciseCart extends Component {
     );
   }
 }
+
