@@ -61,7 +61,6 @@ export default class CartModal extends Component {
     }, 0);
   };
   render() {
-    let { propsCart } = this.props;
     return (
       <div>
         {/* Modal */}
