@@ -45,10 +45,11 @@ const mapDipatchToProps = (dispatch) => {
         count++;
         if (count > 10) {
           clearInterval(randomComputerItem);
+
+          dispatch({
+            type: "END_GAME",
+          });
         }
-        dispatch({
-          type: "END_GAME",
-        });
       }, 100);
     },
   };
