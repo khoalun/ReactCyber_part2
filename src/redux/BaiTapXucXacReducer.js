@@ -1,9 +1,9 @@
 const stateDefault = {
   taiXiu: true, // True :tai (tu 3 -> 11)  false:xiu >11
   arrayXucXac: [
-    { id: 1, img: "./img/gameXucXac/5.png" },
-    { id: 1, img: "./img/gameXucXac/5.png" },
-    { id: 1, img: "./img/gameXucXac/5.png" },
+    { ma: 1, img: "./img/gameXucXac/5.png" },
+    { ma: 1, img: "./img/gameXucXac/5.png" },
+    { ma: 1, img: "./img/gameXucXac/5.png" },
   ],
   roundWin: 0,
   totalRound: 0,
@@ -19,7 +19,7 @@ const BaitapXucXacReducer = (state = stateDefault, action) => {
       for (let i = 0; i < 3; i++) {
         let randomNumber = Math.floor(Math.random() * 6) + 1;
         let xucXacRandom = {
-          id: randomNumber,
+          ma: randomNumber,
           img: `./img/gameXucXac/${randomNumber}.png`,
         };
         arrayRandom.push(xucXacRandom);
@@ -29,7 +29,7 @@ const BaitapXucXacReducer = (state = stateDefault, action) => {
       state.totalRound += 1;
 
       let tongsoDiem = arrayRandom.reduce((tongDiem, xucxac, index) => {
-        return (tongDiem += xucxac.id);
+        return (tongDiem += xucxac.ma);
       }, 0);
       if (
         (tongsoDiem > 11 && state.taiXiu === true) ||

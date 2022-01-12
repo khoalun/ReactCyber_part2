@@ -5,7 +5,10 @@ class Player extends Component {
     console.log(this.props.arrayBet);
     return (
       <div className="text-center">
-        <div className="speech-bubble" style={{ marginLeft: "75px" }}>
+        <div
+          className="speech-bubble"
+          style={{ marginLeft: "75px", padding: "33px", marginTop: "15px" }}
+        >
           <img
             width={100}
             src={this.props.arrayBet.find((item) => item.bet === true).img}
@@ -31,7 +34,13 @@ class Player extends Component {
 
             return (
               <div className="col-4" key={index}>
-                <button style={border} className="btnItem" onClick={() => {this.props.bet(item.id)}}>
+                <button
+                  style={border}
+                  className="btnItem"
+                  onClick={() => {
+                    this.props.bet(item.ma);
+                  }}
+                >
                   <img width={50} height={50} src={item.img} alt={item.img} />
                 </button>
               </div>
@@ -51,12 +60,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bet: (id) => {
+    bet: (ma) => {
       dispatch({
         type: "CHON_KEO_BUA_BAO",
-        id
+        ma,
       });
     },
   };
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

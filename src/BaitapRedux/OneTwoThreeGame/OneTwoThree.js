@@ -37,10 +37,20 @@ class OneTwoThree extends Component {
 const mapDipatchToProps = (dispatch) => {
   return {
     playGame: () => {
-      dispatch({
-        type: "RAN_DOM",
-      });
+      let count = 0;
+      let randomComputerItem = setInterval(() => {
+        dispatch({
+          type: "RAN_DOM",
+        });
+        count++;
+        if (count > 10) {
+          clearInterval(randomComputerItem);
+        }
+        dispatch({
+          type: "END_GAME",
+        });
+      }, 100);
     },
   };
 };
-export default connect(null,mapDipatchToProps)(OneTwoThree);
+export default connect(null, mapDipatchToProps)(OneTwoThree);
