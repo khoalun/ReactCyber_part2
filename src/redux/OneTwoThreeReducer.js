@@ -36,42 +36,44 @@ const OneTwoThreeReducer = (state = stateDefault, action) => {
       return { ...state };
     }
     case "END_GAME":
-      {
-        let player = state.arrayBet.find((item) => item.bet === true);
-        let computer = state.computer;
-        switch (player.ma) {
-          case "keo":
-            if (computer.ma === "keo") {
-              state.result = "Kẻ tám lạng , người nửa cân";
-            } else if (computer.ma === "bua") {
-              state.result = "Ngu dốt";
-            } else {
-              state.result = "U là trời";
-            }
-            break;
-          case "bua":
-            if (computer.ma === "keo") {
-              state.result = "Tuổi loz";
-            } else if (computer.ma === "bua") {
-              state.result = "trời sinh du sao còn sinh lượng";
-            } else {
-              state.result = "Còn cái nịt";
-            }
-            break;
-          case "bao":
-            if (computer.ma === "keo") {
-              state.result = "Hông bé ơi ";
-            } else if (computer.ma === "bua") {
-              state.result = "I love you 3000";
-            } else {
-              state.result = "Bất phân thắng bại";
-            }
-            break;
-
-          default:
-            state.result = "Are you ready to play";
-        }
+      let player = state.arrayBet.find((Pd) => Pd.bet === true);
+      let computer = state.computer;
+      switch (player.ma) {
+        case "keo":
+          if (computer.ma === "keo") {
+            state.result = "Kẻ tám lạng , người nửa cân";
+          } else if (computer.ma === "bua") {
+            state.result = "Ngu dốt";
+          } else {
+            state.roundWin += 1;
+            state.result = "U là trời";
+          }
+          break;
+        case "bua":
+          if (computer.ma === "keo") {
+            state.roundWin += 1;
+            state.result = "Tuổi loz";
+          } else if (computer.ma === "bua") {
+            state.result = "trời sinh du sao còn sinh lượng";
+          } else {
+            state.result = "Còn cái nịt";
+          }
+          break;
+        case "bao":
+          if (computer.ma === "keo") {
+            state.result = "Hông bé ơi ";
+          } else if (computer.ma === "bua") {
+            state.roundWin += 1;
+            state.result = "I love you 3000";
+          } else {
+            state.result = "Bất phân thắng bại";
+          }
+          break;
+        default:
+          state.roundWin += 1;
+          state.result = "Are you ready to play";
       }
+      state.totalRound += 1;
       return { ...state };
     default:
       return { ...state };
