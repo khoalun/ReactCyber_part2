@@ -1,0 +1,95 @@
+.game {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/bk.jpg");
+  background-size: 100%;
+  font-family: fontGame;
+}
+
+@font-face {
+  font-family: "fontGame";
+  src: url("../font/Pony.ttf");
+}
+
+.speech-bubble {
+  transform: translatey(0px);
+  animation: float 5s ease-in-out infinite;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 15px;
+  color: burlywood;
+  background-color: beige;
+  padding: 50px;
+  border-radius: 11px;
+  position: relative;
+  box-shadow: 20px 20px #83af9b;
+  font-family: "Baloo 2", cursive;
+  border: 1px solid green;
+}
+.speech-bubble:after {
+  transform: translatey(0px);
+  animation: float2 5s ease-in-out infinite;
+  content: ".";
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px green;
+  -webkit-text-fill-color: beige;
+  border: 1px solid green;
+  text-shadow: 22px 22px #83af9b;
+  text-align: left;
+  font-size: 55px;
+  width: 55px;
+  height: 11px;
+  line-height: 30px;
+  border-radius: 11px;
+  background-color: beige;
+  position: absolute;
+  display: block;
+  bottom: -30px;
+  left: 0;
+  box-shadow: 22px 22px #83af9b;
+  z-index: -2;
+  margin-left: 128px;
+  margin-bottom: 13px;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+  55% {
+    transform: translatey(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+}
+
+.btnItem {
+  width: 75px;
+  height: 75px;
+  margin-top: 20px;
+}
+
+.computer {
+  transform: rotate(181deg);
+}
