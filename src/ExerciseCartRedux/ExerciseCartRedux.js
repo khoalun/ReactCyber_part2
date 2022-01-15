@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import CartRedux from "./CartRedux";
 import ProductListsRedux from "./ProductListsRedux";
 import { connect } from "react-redux";
