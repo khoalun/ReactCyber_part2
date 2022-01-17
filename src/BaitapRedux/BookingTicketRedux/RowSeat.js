@@ -14,7 +14,7 @@ class RowSeat extends Component {
       let cssSeatChoosing = "";
       // eslint-disable-next-line eqeqeq
       let indexChoosing = this.props.listChoosing.findIndex(
-        (Pan) => Pan.ghe === ghe.soGhe
+        (Pan) => Pan.soGhe === ghe.soGhe
       );
       if (indexChoosing !== -1) {
         cssSeatChoosing = "gheDangChon";
@@ -23,7 +23,7 @@ class RowSeat extends Component {
         // eslint-disable-next-line no-template-curly-in-string
         <button
           onClick={() => {
-            this.props.bookingSeat(ghe);
+            this.props.datGhe(ghe);
           }}
           disabled={disabled}
           className={`ghe ${cssSeatReserved} ${cssSeatChoosing}`}
@@ -72,14 +72,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bookingSeat: (ghe) => {
+    datGhe: (ghe) => {
       dispatch({
         type: "DAT_GHE",
         ghe,
       });
     },
-   
-  
   };
 };
 

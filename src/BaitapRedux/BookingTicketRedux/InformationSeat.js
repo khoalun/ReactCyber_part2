@@ -39,15 +39,15 @@ class InformationSeat extends Component {
               </tr>
             </thead>
             <tbody className="text-warning">
-              {this.props.listChoosing.map((item, index) => {
+              {this.props.listChoosing.map((gheDangDat, index) => {
                 return (
                   <tr key={index}>
-                    <td>{item.soGhe}</td>
-                    <td>{item.gia}</td>
+                    <td>{gheDangDat.soGhe}</td>
+                    <td>{gheDangDat.gia}</td>
                     <td>
                       <button
                         onClick={() => {
-                          this.props.cancelSeat(item);
+                          this.props.cancelSeat(gheDangDat.soGhe);
                         }}
                       >
                         Delete
