@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import BookingTicket from "./BaitapRedux/BookingTicketRedux/BookingTicket";
 // import OddEvenGameRedux from "./BaitapRedux/OddEvenGameRedux";
-import OneTwoThree from "./BaitapRedux/OneTwoThreeGame/OneTwoThree";
+// import OneTwoThree from "./BaitapRedux/OneTwoThreeGame/OneTwoThree";
+
 // import ExerciseCarStore from "./ExerciseCarStore/ExerciseCarStore";
 // import ExerciseCart from "./ExerciseCart/ExerciseCart";
 // import ExerciseCartRedux from "./ExerciseCartRedux/ExerciseCartRedux";
@@ -73,7 +75,8 @@ export default class App extends Component {
 
         {/* <ExerciseCartRedux /> */}
         {/* <OddEvenGameRedux/> */}
-        <OneTwoThree />
+        {/* <OneTwoThree /> */}
+        <BookingTicket />
       </div>
     );
   }
