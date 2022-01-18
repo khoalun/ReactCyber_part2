@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { cancelSeat } from "../../redux/actions/BookingTicketActions";
 class InformationSeat extends Component {
   render() {
     return (
@@ -39,15 +40,19 @@ class InformationSeat extends Component {
               </tr>
             </thead>
             <tbody className="text-warning">
-              {this.props.listChoosing.map((gheDangDat, index) => {
+              {this.props.listChoosing.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td>{gheDangDat.soGhe}</td>
-                    <td>{gheDangDat.gia}</td>
+                    <td>{item.soGhe}</td>
+                    <td>{item.gia}</td>
                     <td>
                       <button
+                        // onClick={() => {
+                        //   this.props.cancelSeat(item.soGhe);
+                        // }}
+
                         onClick={() => {
-                          this.props.cancelSeat(gheDangDat.soGhe);
+                          this.props.dispatch(cancelSeat(item.soGhe));
                         }}
                       >
                         Delete
@@ -57,6 +62,19 @@ class InformationSeat extends Component {
                 );
               })}
             </tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td className="text-warning">
+                  {this.props.listChoosing.reduce(
+                    (total, seatBooking, index) => {
+                      return (total += seatBooking.gia);
+                    },
+                    0
+                  )}
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>
@@ -70,15 +88,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    cancelSeat: (soGhe) => {
-      dispatch({
-        type: "HUY_GHE",
-        soGhe,
-      });
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     cancelSeat: (id) => {
+//       dispatch({
+//         type: "HUY_GHE",
+//         id,
+//       });
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InformationSeat);
+export default connect(mapStateToProps)(InformationSeat);

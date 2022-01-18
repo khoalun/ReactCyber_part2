@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bookingAction } from "../../redux/actions/BookingTicketActions";
 class RowSeat extends Component {
   renderSeat = () => {
-    return this.props.seat.danhSachGhe.map((ghe, index) => {
+    return this.props.seat.danhSachGhe.map((item, index) => {
       let cssSeatReserved = "";
       let disabled = false;
       //Seat Reserved Adding Css
-      if (ghe.daDat) {
+      if (item.daDat) {
         cssSeatReserved = "gheDuocChon";
         disabled = true;
       }
@@ -14,7 +15,8 @@ class RowSeat extends Component {
       let cssSeatChoosing = "";
       // eslint-disable-next-line eqeqeq
       let indexChoosing = this.props.listChoosing.findIndex(
-        (Pan) => Pan.soGhe === ghe.soGhe
+      // item.soGhe lay tu data, pan.soGhe cho bang voi item neu ko bi loi button phia sau
+        (Pan) => Pan.soGhe === item.soGhe
       );
       if (indexChoosing !== -1) {
         cssSeatChoosing = "gheDangChon";
@@ -23,22 +25,22 @@ class RowSeat extends Component {
         // eslint-disable-next-line no-template-curly-in-string
         <button
           onClick={() => {
-            this.props.datGhe(ghe);
+            this.props.bookingSeat(item);
           }}
           disabled={disabled}
           className={`ghe ${cssSeatReserved} ${cssSeatChoosing}`}
           key={index}
         >
-          {ghe.soGhe}
+          {item.soGhe}
         </button>
       );
     });
   };
   renderFirstRow = () => {
-    return this.props.seat.danhSachGhe.map((ghe, index) => {
+    return this.props.seat.danhSachGhe.map((item, index) => {
       return (
         <button className="rowNumber" key={index}>
-          {ghe.soGhe}
+          {item.soGhe}
         </button>
       );
     });
@@ -70,15 +72,22 @@ const mapStateToProps = (state) => {
   };
 };
 
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     bookingSeat: (id) => {
+//       dispatch({
+//         type: "DAT_GHE",
+//         id,
+//       });
+//     },
+//   };
+// };
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    datGhe: (ghe) => {
-      dispatch({
-        type: "DAT_GHE",
-        ghe,
-      });
+    bookingSeat: (id) => {
+      dispatch(bookingAction(id))
     },
   };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(RowSeat);

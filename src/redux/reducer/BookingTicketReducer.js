@@ -1,31 +1,32 @@
+import { DAT_GHE } from "../types/BookingTicketType";
+import { HUY_GHE } from "../types/BookingTicketType";
 const stateDefault = {
   listChoosing: [
-    // { ghe: "A1", price: 1000 },
-    { ghe: "B1", price: 2000 },
-    { ghe: "C1", price: 2000 },
+    // { soGhe: "B1", price: 2000 }, du lieu mac dinh
+    // { soGhe: "C1", price: 2000 },
   ],
 };
 
 const BookingTicketReducer = (state = stateDefault, action) => {
   switch (action.type) {
-    case "DAT_GHE": {
+    case DAT_GHE: {
       let listChoosingUpdate = [...state.listChoosing];
       let index = listChoosingUpdate.findIndex(
-        (SD) => SD.soGhe === action.ghe.soGhe
+        (SD) => SD.soGhe === action.id.soGhe
       );
       if (index !== -1) {
         listChoosingUpdate.splice(index, 1);
       } else {
-        listChoosingUpdate.push(action.ghe);
+        listChoosingUpdate.push(action.id);
       }
       state.listChoosing = listChoosingUpdate;
       return { ...state };
     }
 
-    case "HUY_GHE": {
+    case HUY_GHE: {
       let listChoosingUpdate = [...state.listChoosing];
       let index = listChoosingUpdate.findIndex(
-        (SD) => SD.soGhe === action.soGhe
+        (SD) => SD.soGhe === action.seat
       );
       if (index !== -1) {
         listChoosingUpdate.splice(index, 1);
