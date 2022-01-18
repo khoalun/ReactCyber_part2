@@ -9,8 +9,8 @@ class LikeProfile extends Component {
           return (
             <div className="mt-2">
               <div
-                className="card text-white bg-default"
-                style={{ width: 300 }}
+                className="card text-white "
+                style={{ width: 300, backgroundColor: "ivory" }}
               >
                 <div className="card-body">
                   <button

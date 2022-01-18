@@ -7,7 +7,15 @@ class ModelProfile extends Component {
         {(value) => {
           return (
             <div className=" mt-5">
-              <h3>Profile</h3>
+              <h3
+                style={{
+                  border: "2px solid black",
+                  width: 300,
+                  backgroundColor: "ivory",
+                }}
+              >
+                Profile
+              </h3>
               <div
                 className="card text-white bg-dark mt-10"
                 style={{ width: 300 }}
