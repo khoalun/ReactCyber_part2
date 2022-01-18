@@ -36,7 +36,7 @@ class InformationSeat extends Component {
               <tr className="text-light" style={{ fontSize: "35px" }}>
                 <td>Seat Number</td>
                 <td>Price</td>
-                <td></td>
+                <td>Delete</td>
               </tr>
             </thead>
             <tbody className="text-warning">
@@ -63,15 +63,14 @@ class InformationSeat extends Component {
               })}
             </tbody>
             <tfoot>
-              <tr>
+              <tr className="text-light" style={{ fontSize: "35px" }}>
                 <td>Total</td>
-                <td className="text-warning">
-                  {this.props.listChoosing.reduce(
-                    (total, seatBooking, index) => {
+                <td>
+                  {this.props.listChoosing
+                    .reduce((total, seatBooking, index) => {
                       return (total += seatBooking.gia);
-                    },
-                    0
-                  )}
+                    }, 0)
+                    .toLocaleString()}
                 </td>
               </tr>
             </tfoot>
