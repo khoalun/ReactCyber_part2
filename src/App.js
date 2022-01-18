@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import BookingTicket from "./BaitapRedux/BookingTicketRedux/BookingTicket";
+import ContextDemo from "./ContextDemo/_Provider/ContextDemo";
+// import DemoPureComponent from "./DemoPureComponent/DemoPureComponent";
+// import BookingTicket from "./BaitapRedux/BookingTicketRedux/BookingTicket";
 // import OddEvenGameRedux from "./BaitapRedux/OddEvenGameRedux";
 // import OneTwoThree from "./BaitapRedux/OneTwoThreeGame/OneTwoThree";
 
@@ -76,7 +78,9 @@ export default class App extends Component {
         {/* <ExerciseCartRedux /> */}
         {/* <OddEvenGameRedux/> */}
         {/* <OneTwoThree /> */}
-        <BookingTicket />
+        {/* <BookingTicket /> */}
+        {/* <DemoPureComponent/> */}
+        <ContextDemo />
       </div>
     );
   }
